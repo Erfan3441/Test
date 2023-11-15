@@ -29,6 +29,23 @@ class CircularQueue:
             self.rear = (self.rear + 1) % self.size 
             self.queue[self.rear] = val
 
-    
+    def Dequeue(self): # remove from queue
+        if self.Isempty()==True:
+            print("The queue is empty!")
+            return
+        else:
+            temp = self.queue[self.front]
+            self.queue[self.front] = None
+            self.front = (self.front + 1) % self.size
+            return temp
+   
+    def Reverse(self): 
+        start = self.front
+        end = self.rear
+        A = self.queue
+        while start < end: 
+            A[start], A[end] = A[end], A[start] 
+            start += 1
+            end -= 1
 
             
